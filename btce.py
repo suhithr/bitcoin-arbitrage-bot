@@ -1,6 +1,8 @@
 from Exchange import Exchange
+from Order import Order
 import btceapi
-from order import Order
+import os
+import logging
 
 class BTCE(Exchange):
     def __init__(self, keypath):
@@ -11,7 +13,8 @@ class BTCE(Exchange):
         self.api = btceapi.TradeAPI(key, self.keyhandler)
 
         self.name = 'BTCE'
-        self.trading_fee = 0.2 # The fee is 0.2% for all pairs
+        self.trading_fee = 0.2 # The fee is 0.2% for all pairs, maker and taker
+        self.tradeable_pairs = self.get_tradeable_pairs()
 
     def get_tradeable_pairs(self):
         tradeable_pairs = []
@@ -31,6 +34,13 @@ class BTCE(Exchange):
             bids, asks = btceapi.getDepth(pairstr)
         else:
             asks, bids = btceapi.getDepth(pairstr)
+
+        print pairstr + "----------"
+
+        print "BTCE.get_depth : asks -> "
+        print asks
+        print " -> bids -> "
+        print bids
 
         order_book['bids'] = [Order(float(b[0]), float(b[1])) for b in bids]
         order_book['asks'] = [Order(float(a[0]), float(a[1])) for a in asks]

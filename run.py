@@ -1,4 +1,4 @@
-
+from Arbitrage import Arbitrage
 from build_brokers import build_brokers
 import config
 

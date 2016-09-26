@@ -1,7 +1,5 @@
-'''
-Abstract class for all Exchanges
-'''
-import abc
+import config
+
 class Exchange(object):
 
     def __init__(self):
@@ -13,6 +11,7 @@ class Exchange(object):
 
     def get_validated_pair(self, pair):
         # Checks for existence of supported pain in exchange
+        # If valid returns pair, swapped(bool)
         base, alt = pair
         if pair in self.tradeable_pairs:
             return (pair, False)
@@ -28,7 +27,11 @@ class Exchange(object):
         if test is not None:
             true_pair, swapped = test
             if not swapped:
-                return 0.01
+                true_base, true_alt = true_pair
+                return config.MINIMUM_PROFIT_VOLUME[true_base.upper()]
             # TODO: Implement the alternate function
             else:
                 return get_converted_alt_volume()
+
+    def get_tradeable_pairs(self):
+        pass

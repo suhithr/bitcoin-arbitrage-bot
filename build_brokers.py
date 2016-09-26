@@ -1,5 +1,5 @@
 from Broker import Broker
-import btce
+from btce import BTCE
 import logging
 
 def build_brokers(mode, pairs, exchanges):
@@ -7,7 +7,7 @@ def build_brokers(mode, pairs, exchanges):
     # Returns array of broker objects
     for e in exchanges:
         if e == 'BTCE':
-            exchange = btce('/key/is/here/somewhere')
+            exchange = BTCE('./btce_keys.txt')
         # elif e == 'GDAX':
         #     exchange = GDAX()
         # elif e == 'POLONIEX':

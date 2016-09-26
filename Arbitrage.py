@@ -4,9 +4,13 @@ from Profit import Profit
 # Make it Arbitrage(Bot) , write a bot baseclass
 class Arbitrage(object):
     def __init__(self, config, brokers):
-        super(Arbitrage, self).__init__(config, brokers)
+        super(Arbitrage, self).__init__()
         self.config = config
         self.brokers = brokers
+
+        if self.config.TRADE_MODE == 'paper':
+            for broker in self.brokers:
+                broker.initialize_balance()
 
     def run_trade(self, pair):
         base, alt = pair
