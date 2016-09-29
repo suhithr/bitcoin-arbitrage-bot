@@ -13,13 +13,16 @@ class Arbitrage(object):
                 broker.initialize_balance()
 
     def run_trade(self, pair):
+        for broker in self.brokers:
+            broker.get_depth(pair)
         base, alt = pair
+        print "Searching for arbitrage in the {}_{} market".format(base, alt)
         profit = Profit(self.brokers, pair)
-        # Make into function
+        # Checks for existence of profitable trades
         profit.check_spread()
-        # find the trade if they exist
-        # print the info
-        for pair in self.config.PAIRS:
-            for broker in self.brokers:
-                # Update balances for each currency in the broker object
-                broker.update_all_balances()
+        # TODO: Have check spread return data, and print handled by a seperate function
+        # TODO: Implement actual balance calculations even for Paper trading
+        # for pair in self.config.PAIRS:
+        #     for broker in self.brokers:
+        #         # Update balances for each currency in the broker object
+        #         broker.update_all_balances()

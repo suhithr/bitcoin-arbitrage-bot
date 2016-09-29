@@ -4,5 +4,6 @@ import config
 
 brokers = build_brokers(config.TRADE_MODE, config.PAIRS, config.EXCHANGES)
 bot = Arbitrage(config, brokers)
-pair = ("BTC", "LTC")
-bot.run_trade(pair)
+# TODO: Loop for the bot to fetch data and make calculations once every couple of seconds
+for pair in config.PAIRS:
+    bot.run_trade(pair)

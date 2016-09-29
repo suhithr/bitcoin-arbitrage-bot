@@ -1,7 +1,8 @@
-EXCHANGES = ['BTCE', 'BITFINEX', 'POLOINEX', 'BTCC','GDAX']
+EXCHANGES = ['BTCE']
+# , 'BITFINEX', 'POLOINEX', 'BTCC','GDAX'
 
 # BTCC Can only do LTC BTC
-PAIRS = [("LTC","BTC"),("ETH","BTC")]
+PAIRS = [("BTC","LTC"),("BTC","ETH")]
 
 BALLPARK_VALUE = {
     "BTC" : 580,
@@ -15,7 +16,7 @@ TRADE_MODE = "paper" # paper or real
 
 # Initial balance of each currency, used in paper trading mode
 INITIAL_BALANCE = {
-    "BTC" : 0.8,
+    "BTC" : 0,
     "LTC" : 0,
     "ETH" : 0
 }

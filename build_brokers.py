@@ -8,10 +8,10 @@ def build_brokers(mode, pairs, exchanges):
     for e in exchanges:
         if e == 'BTCE':
             exchange = BTCE('./btce_keys.txt')
-        # elif e == 'GDAX':
-        #     exchange = GDAX()
-        # elif e == 'POLONIEX':
-        #     exchange = POLONIEX()
+        elif e == 'GDAX':
+            exchange = GDAX()
+        elif e == 'POLONIEX':
+            exchange = POLONIEX()
         else:
             logging.error("This exchange is not yet supported : " + e)
 
