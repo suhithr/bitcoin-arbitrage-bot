@@ -1,4 +1,4 @@
-#Bitcoin Arbitrage Bot
+# Bitcoin Arbitrage Bot
 
 *Within the inefficiencies of the markets exist opportunities for those who wish to find them.*
 
@@ -7,7 +7,7 @@ from around the world.
 
 The program will run pairwise arbitrage for *LTC-BTC* and *ETH-BTC*.
 
-##Run:
+## Run:
 * Run `run.py`
 
 
@@ -15,7 +15,7 @@ The program will run pairwise arbitrage for *LTC-BTC* and *ETH-BTC*.
 <!--- Check out this blog post where I go a little more in depth about what's going on* (Work in Progress) --->
 <!--- Another reason for the use of cryptocurrency to trade for another cryptocurrency is that it is simply easier and cheaper to get Bitcoin in and out of such exchanges as with fiat one has to deal with expensive wire transfers to foreign banks, BTC is much easier.--->
 
-##Support:
+## Support:
 
 It currently works for:
 * [BTC-E](btc-e.com)
